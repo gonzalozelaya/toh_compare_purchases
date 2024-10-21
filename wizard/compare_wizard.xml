@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- change password wizard -->
+        <record id="compare_wizard_view_form" model="ir.ui.view">
+            <field name="name">compare.wizard.form</field>
+            <field name="model">compare.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                    </header>
+                    <sheet>
+                        <field name="order_ids" invisible="1"/>
+                        <div class="row justify-content-md-left">
+                            <div class="col-md-auto">
+                                <button string="Comparar y confirmar pedido o requisición" name="open_dashboard_button" type="object" class="btn-primary"/>
+                            </div>
+                            <div class="col-md-auto">
+                                <button string="Tabla comparativa" name="open_pivot_graph_button" type="object" class="btn-primary"/>
+                            </div>
+                            <div class="col-md-auto">
+                                <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                            </div>
+                        </div>
+                    </sheet>
+                    <footer>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

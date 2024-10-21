@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="purchase_order_line_compare_pivot" model="ir.ui.view">
+        <field name="name">purchase.orcer.line.compare.pivot</field>
+        <field name="model">purchase.order.line</field>
+        <field name="arch" type="xml">
+            <pivot string="Comparar" sample="1">
+                <!-- <field name="order_id" type="row"/> -->
+                <field name="name" type="row"/>
+                <field name="partner_id" type="col"/>
+                <field name="order_id" type="col"/>
+                <field name="product_qty" type="measure"/>
+                <field name="price_unit" type="measure"/>
+                <field name="price_subtotal" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+    <record id="purchase_order_line_compare_graph" model="ir.ui.view">
+        <field name="name">purchase.orcer.line.compare.graph</field>
+        <field name="model">purchase.order.line</field>
+        <field name="arch" type="xml">
+            <graph string="Comparar">
+                <field name="name" type="row"/>
+                <field name="partner_id" type="col"/>
+                <field name="price_subtotal" type="measure"/>
+            </graph>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="acction_purchase_compare" model="ir.actions.server">
+        <field name="name">Comparar</field>
+        <field name="type">ir.actions.server</field>
+        <!-- <field name="groups_id" eval="[(4, ref('account.group_account_invoice'))]"/> -->
+        <field name="model_id" ref="model_purchase_order"/>
+        <field name="binding_model_id" ref="model_purchase_order"/>
+        <field name="binding_view_types">list</field>
+        <field name="state">code</field>
+        <field name="code">
+                action = records.open_wizard()
+        </field>
+    </record>
+    <record id="purchase_order_form_inherit" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <page name="purchase_delivery_invoice" position="after">
+                <page name="comparativa_page" string="Comparativa">
+                    <group>
+                        <group>
+                            <field name="ventajas"/>
+                        </group>
+                        <group>
+                            <field name="inconvenientes"/>
+                        </group>
+                    </group>
+                </page>
+                <page name="decline_page" string="Productos Rechazados">
+                    <field name="order_decline" readonly="1">
+                        <tree editable="bottom">
+                            <field name="product_id"/>
+                            <field name="name"/>
+                            <field name="product_qty"/>
+                            <field name="price_unit"/>
+                            <field name="taxes_id" widget="many2many_tags"/>
+                            <field name="price_subtotal"/>
+                        </tree>
+                        <form>
+                            <group>
+                                <group>
+                                    <field name="product_id"/>
+                                    <field name="name"/>
+                                    <field name="product_qty"/>
+                                </group>
+                                <group>
+                                    <field name="price_unit"/>
+                                    <field name="taxes_id" widget="many2many_tags"/>
+                                    <field name="price_subtotal"/>
+                                </group>
+                            </group>
+                        </form>
+                    </field>
+                </page>
+            </page>
+            <div name="reminder" position="after">
+                <field name="validez_oferta"/>
+                <field name="forma_pago"/>
+            </div>
+            <group name="other_info" position="inside">
+                <field name="aprobado_por" domain="[('share', '=', False)]" widget="many2one_avatar_user"/>
+                <field name="aprobado_el"/>
+            </group>
+        </field>
+    </record>
+</odoo>

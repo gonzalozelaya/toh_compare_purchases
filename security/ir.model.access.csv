@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_compare_wizard, access_compare_wizard,model_compare_wizard,base.group_user,1,1,1,1
+access_confirm_wizard, access_confirm_wizard,model_confirm_wizard,base.group_user,1,1,1,1
+access_purchase_order_decline, access_purchase_order_decline,model_purchase_order_decline,base.group_user,1,1,1,1

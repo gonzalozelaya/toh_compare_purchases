@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+    <t t-name="compare_template" owl="1">
+        <div class="oh_dashboards overflow-auto">
+            <div class="container-fluid o_compare_template">
+        <div class="mt-2 bg-primary" style="font-size: 17px;text-align: center;padding: 10px 0;color: #fff;">
+                    Comparar
+        </div>
+        <div class="hr_notification pt-0 mt-0" style="background: #fff;transition: transform 0.2s ease, box-shadow 0.2s ease;will-change: transform, box-shadow;box-shadow: 0 10px 20px 0 rgba(62,57,107,0.07), 0 2px 9px 0 rgba(62,57,107,0.06); height:85vh; display: flex; flex-wrap: nowrap; overflow: auto;">
+            <div class="col-sm-12 col-lg-12">
+                <table class="table table-bordered table-striped">
+                    <thead class="sticky-top bg-white">
+                        <tr>
+                            <th class="text-center align-middle bg-white" rowspan="2" scope="col" style="position: sticky; left:0">Producto</th>
+                            <t t-foreach="order_list" t-as="order" t-key="order.id">
+                                <th colspan="5" scope="col" class="text-center border-bottom border-left">
+                                    <a href="#" t-on-click="view_order" class="view_order" t-att-value="order.id">
+                                        <p t-esc="order.name" class="my-0 view_order" t-att-value="order.id"/>
+                                    </a>
+
+                                    <a href="#"  t-on-click="view_partner" type="object" class="view_partner" t-att-value="order.partner_id">
+                                        <p t-esc="order.partner_name" class="my-0 view_partner" t-att-value="order.partner_id"/>
+                                    </a>
+
+                                    <p t-if="order.partner_phone!=false" t-esc="order.partner_phone" class="my-0"/>
+                                    <p t-if="order.partner_email!=false" t-esc="order.partner_email" class="my-0"/>
+                                    <p>
+                                        <span class="font-weight-bold" t-esc="order.currency_id"/>
+                                    </p>
+                                </th>
+                            </t>
+                        </tr>
+                        <tr>
+                            <t t-foreach="order_list" t-as="order" t-key="order.id">
+                                <th colspan="2" class="text-center border-left">Cantidad</th>
+                                <th class="text-center border-left">Precio unitario</th>
+                                <th colspan="2" class="text-center border-left">Subtotal</th>
+                            </t>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                            <t t-foreach="product_list" t-as="product" t-key="product.id">
+                                <tr>
+                                    <th class="bg-white border-top" style="position: sticky; left:0" scope="row" t-esc="product.name">
+                                    </th>
+                                    <t t-foreach="product.details" t-as="details" t-key="details.id">
+                                        <td class="text-center border-left border-top">
+                                            <t t-if="details.id != False">
+                                                <t t-if="details.state != 'purchase'">
+                                                    <input type="radio" class="" t-att-name="product.id" t-att-value="details.order_id" required="1">
+                                                    </input>
+                                                </t>
+                                            </t>
+                                        </td>
+                                        <td class="text-center border-top" t-esc="details.product_qty"></td>
+                                        <td class="text-center border-left border-top" t-esc="details.price_unit"></td>
+                                        <td class="text-center border-left border-top" t-esc="details.subtotal"></td>
+                                        <td class="text-center border-top">
+                                            <t t-if="details.id != False">
+                                                <t t-if="details.state != 'purchase'">
+                                                    <button t-on-click="btn_delete_record" class=" fa fa-trash btn btn-outline-danger btn-sm btn-delete-record" type="object" t-att-id="details.id">
+                                                    </button>
+                                                </t>
+                                            </t>
+                                        </td>
+                                    </t>
+                                </tr>
+                            </t>
+                        
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th class="bg-white border-top" style="position: sticky; left:0">Fecha de recepción</th>
+                            <t t-foreach="order_list" t-as="order" t-key="order.id">
+                                <th t-if="order.date_planned != false" colspan="5" scope="col" class="text-center border-left border-top" t-esc="order.date_planned"></th>
+                                <th t-else="" colspan="5" scope="col" class="text-center border-left border-top">N/A</th>
+                            </t>
+                        </tr>
+                        <tr>
+                            <th class="bg-white border-top" style="position: sticky; left:0">Impuestos</th>
+                            <t t-foreach="order_list" t-as="order" t-key="order.id">
+                                <th colspan="5" scope="col" class="text-center border-left border-top" t-esc="order.amount_tax">
+                                </th>
+                            </t>
+                        </tr>
+                        <tr>
+                            <th class="bg-white border-top" style="position: sticky; left:0">Total</th>
+                            <t t-foreach="order_list" t-as="order" t-key="order.id">
+                                <th colspan="5" scope="col" class="text-center border-left border-top" t-esc="order.amount_total">
+                                </th>
+                            </t>
+                        </tr> 
+                        <tr>
+                            <th class="bg-white border-top" style="position: sticky; left:0">Ventajas</th>
+                            <t t-foreach="order_list" t-as="order" t-key="order.id">
+                                <t t-if="order.ventajas != false">
+                                    <th colspan="5" scope="col" class="text-center border-left border-top" t-esc="order.ventajas">
+                                    </th>
+                                </t>
+                                <t t-else="">
+                                    <th colspan="5" scope="col" class="text-center border-left border-top">
+                                    </th>
+                                </t>
+                            </t>
+                        </tr>
+                        <tr>
+                            <th class="bg-white border-top" style="position: sticky; left:0">Inconvenientes</th>
+                            <t t-foreach="order_list" t-as="order" t-key="order.id">
+                                <t t-if="order.inconvenientes != false">
+                                    <th colspan="5" scope="col" class="text-center border-left border-top" t-esc="order.inconvenientes">
+                                    </th>
+                                </t>
+                                <t t-else="">
+                                    <th colspan="5" scope="col" class="text-center border-left border-top">
+                                    </th>
+                                </t>
+                            </t>
+                        </tr>
+                        <tr>
+                            <th class="bg-white border-top" style="position: sticky; left:0">Valoración Financiera</th>
+                            <t t-foreach="order_list" t-as="order" t-key="order.id">
+                                <th colspan="5" scope="col" class="text-center border-left border-top">
+                                    <div class="star-widget" t-if="order.partner_val_financiera == false or order.partner_val_financiera == '1'">
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
+                                    </div>
+                                    <div class="star-widget" t-if="order.partner_val_financiera == '2'">
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
+                                    </div>
+                                    <div class="star-widget" t-if="order.partner_val_financiera == '3'">
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star"/>
+                                    </div>
+                                    <div class="star-widget" t-if="order.partner_val_financiera == '4'">
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                    </div>
+                                </th>
+                            </t>
+                        </tr>
+
+                        <tr>
+                            <th class="bg-white border-top" style="position: sticky; left:0">Valoración Técnica</th>
+                            <t t-foreach="order_list" t-as="order" t-key="order.id">
+                                <th colspan="5" scope="col" class="text-center border-left border-top">
+                                    <div class="star-widget" t-if="order.partner_val_tecnica == false or order.partner_val_tecnica == '1'">
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
+                                    </div>
+                                    <div class="star-widget" t-if="order.partner_val_tecnica == '2'">
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
+                                    </div>
+                                    <div class="star-widget" t-if="order.partner_val_tecnica == '3'">
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star"/>
+                                    </div>
+                                    <div class="star-widget" t-if="order.partner_val_tecnica == '4'">
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                    </div>
+                                </th>
+                            </t>
+                        </tr>
+
+                        <tr>
+                            <th class="bg-white border-top" style="position: sticky; left:0">Calidad de los productos</th>
+                            <t t-foreach="order_list" t-as="order" t-key="order.id">
+                                <th colspan="5" scope="col" class="text-center border-left border-top">
+                                    <div class="star-widget" t-if="order.partner_cal_producto == false or order.partner_cal_producto == '1'">
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
+                                    </div>
+                                    <div class="star-widget" t-if="order.partner_cal_producto == '2'">
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
+                                    </div>
+                                    <div class="star-widget" t-if="order.partner_cal_producto == '3'">
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star"/>
+                                    </div>
+                                    <div class="star-widget" t-if="order.partner_cal_producto == '4'">
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                    </div>
+                                </th>
+                            </t>
+                        </tr>
+                        <tr>
+                            <th class="bg-white border-top" style="position: sticky; left:0">Archivos adjuntos</th>
+                            <t t-foreach="order_list" t-as="order" t-key="order.id">
+                                <th colspan="5" scope="col" class="text-center border-left border-top">
+                                    <t t-foreach="order.attachment" t-as="attachment" t-key="attachment.id">
+                                        <p class="my-0">
+                                            <a t-attf-href="/web/content/#{attachment.id}?download=true">
+                                                <span t-esc="attachment.name" class="fa fa-download"/>
+                                            </a>
+                                        </p>
+                                    </t>
+                                </th>
+                            </t>
+
+                        </tr>
+                        <tr>
+                            <th class="bg-white border-top border-bottom" style="position: sticky; left:0">Estado</th>
+                            <t t-foreach="order_list" t-as="order" t-key="order.id">
+                                <th colspan="5" scope="col" class="text-center border-bottom border-top border-left border-top">
+                                    <t t-if="order.state=='draft'">
+                                        <h4>
+                                            <span class="badge badge-info">Solicitud</span>
+                                        </h4>
+                                    </t>
+                                    <t t-if="order.state=='sent'">
+                                        <h4>
+                                            <span class="badge badge-info">Solicitud enviada</span>
+                                        </h4>
+                                    </t>
+                                    <t t-if="order.state=='to approve'">
+                                        <h4>
+                                            <span class="badge badge-info">Por aprobar</span>
+                                        </h4>
+                                    </t>
+                                    <t t-if="order.state=='purchase'">
+                                        <h4>
+                                            <span class="badge badge-primary">Confirmado</span>
+                                        </h4>
+                                    </t>
+                                    <t t-if="order.state=='done'">
+                                        <h4>
+                                            <span class="badge badge-primary">Bloqueado</span>
+                                        </h4>
+                                    </t>
+                                    <t t-if="order.state=='cancel'">
+                                        <h4>
+                                            <span class="badge badge-danger">Cancelado</span>
+                                        </h4>
+                                    </t>
+                                </th>
+                            </t>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div class="text-center">
+                    <button t-on-click="btn_confirm_orders" class="mb-4 btn btn-primary btn-confirm-orders"  type="object" >Confirmar</button>
+                </div>
+
+            </div>
+        </div>
+            </div>
+        </div>
+    </t>
+</template>
