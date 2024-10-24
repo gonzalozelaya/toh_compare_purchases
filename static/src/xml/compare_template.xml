@@ -125,9 +125,13 @@
                                         <span class="fa fa-star"/>
                                         <span class="fa fa-star"/>
                                         <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
                                     </div>
                                     <div class="star-widget" t-if="order.partner_val_financiera == '2'">
                                         <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
                                         <span class="fa fa-star"/>
                                         <span class="fa fa-star"/>
                                     </div>
@@ -135,8 +139,26 @@
                                         <span class="fa fa-star" style="color:#fd4;"/>
                                         <span class="fa fa-star" style="color:#fd4;"/>
                                         <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
                                     </div>
                                     <div class="star-widget" t-if="order.partner_val_financiera == '4'">
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
+                                    </div>
+                                    <div class="star-widget" t-if="order.partner_val_financiera == '5'">
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star"/>
+                                    </div>
+                                    <div class="star-widget" t-if="order.partner_val_financiera == '6'">
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
                                         <span class="fa fa-star" style="color:#fd4;"/>
                                         <span class="fa fa-star" style="color:#fd4;"/>
                                         <span class="fa fa-star" style="color:#fd4;"/>
@@ -153,9 +175,13 @@
                                         <span class="fa fa-star"/>
                                         <span class="fa fa-star"/>
                                         <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
                                     </div>
                                     <div class="star-widget" t-if="order.partner_val_tecnica == '2'">
                                         <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
                                         <span class="fa fa-star"/>
                                         <span class="fa fa-star"/>
                                     </div>
@@ -163,8 +189,26 @@
                                         <span class="fa fa-star" style="color:#fd4;"/>
                                         <span class="fa fa-star" style="color:#fd4;"/>
                                         <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
                                     </div>
                                     <div class="star-widget" t-if="order.partner_val_tecnica == '4'">
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
+                                    </div>
+                                    <div class="star-widget" t-if="order.partner_val_tecnica == '5'">
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star"/>
+                                    </div>
+                                    <div class="star-widget" t-if="order.partner_val_tecnica == '6'">
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
                                         <span class="fa fa-star" style="color:#fd4;"/>
                                         <span class="fa fa-star" style="color:#fd4;"/>
                                         <span class="fa fa-star" style="color:#fd4;"/>
@@ -181,9 +225,13 @@
                                         <span class="fa fa-star"/>
                                         <span class="fa fa-star"/>
                                         <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
                                     </div>
                                     <div class="star-widget" t-if="order.partner_cal_producto == '2'">
                                         <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
                                         <span class="fa fa-star"/>
                                         <span class="fa fa-star"/>
                                     </div>
@@ -191,8 +239,75 @@
                                         <span class="fa fa-star" style="color:#fd4;"/>
                                         <span class="fa fa-star" style="color:#fd4;"/>
                                         <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
                                     </div>
                                     <div class="star-widget" t-if="order.partner_cal_producto == '4'">
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
+                                    </div>
+                                    <div class="star-widget" t-if="order.partner_cal_producto == '5'">
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star"/>
+                                    </div>
+                                    <div class="star-widget" t-if="order.partner_cal_producto == '6'">
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                    </div>
+                                </th>
+                            </t>
+                        </tr>
+                        <tr>
+                            <th class="bg-white border-top" style="position: sticky; left:0">Nuevo campo</th>
+                            <t t-foreach="order_list" t-as="order" t-key="order.id">
+                                <th colspan="5" scope="col" class="text-center border-left border-top">
+                                    <div class="star-widget" t-if="order.partner_nuevo_campo == false or order.partner_nuevo_campo == '1'">
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
+                                    </div>
+                                    <div class="star-widget" t-if="order.partner_nuevo_campo == '2'">
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
+                                    </div>
+                                    <div class="star-widget" t-if="order.partner_nuevo_campo == '3'">
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
+                                    </div>
+                                    <div class="star-widget" t-if="order.partner_nuevo_campo == '4'">
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star"/>
+                                        <span class="fa fa-star"/>
+                                    </div>
+                                    <div class="star-widget" t-if="order.partner_cal_producto == '5'">
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star"/>
+                                    </div>
+                                    <div class="star-widget" t-if="order.partner_cal_producto == '6'">
+                                        <span class="fa fa-star" style="color:#fd4;"/>
+                                        <span class="fa fa-star" style="color:#fd4;"/>
                                         <span class="fa fa-star" style="color:#fd4;"/>
                                         <span class="fa fa-star" style="color:#fd4;"/>
                                         <span class="fa fa-star" style="color:#fd4;"/>
