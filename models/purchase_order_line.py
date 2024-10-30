@@ -75,7 +75,6 @@ class PurchaseOrderLine(models.Model):
                     'partner_val_tecnica':record.partner_id.val_tecnica,
                     'partner_cal_producto':record.partner_id.cal_producto,
                     'partner_nuevo_campo':record.partner_id.nuevo_campo,
-                    
                     'attachment':attachment,
 
                     'ventajas':record.ventajas,

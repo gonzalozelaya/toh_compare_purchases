@@ -21,6 +21,7 @@
         'security/ir.model.access.csv',
         'wizard/compare_wizard.xml',
         'wizard/confirm_wizard.xml',
+        'wizard/survey_wizard.xml'
     ],
     'demo': [
        

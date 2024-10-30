@@ -1,8 +1,4 @@
 from odoo import models, fields, api,_
-from odoo.exceptions import UserError
-import logging
-import json
-_logger = logging.getLogger(__name__)
 
 class ResPartner(models.Model):
     _inherit = 'res.partner'
@@ -14,7 +10,7 @@ class ResPartner(models.Model):
         ('4', 'Muy bueno'),
         ('5', 'Excelente'),
         ('6', 'God'),
-    ], 'Valoración financiera')
+    ], 'Valoración financiera', readonly=True)
     val_tecnica = fields.Selection([
         ('1', 'Pésimo'),
         ('2', 'Mal'),
@@ -22,7 +18,7 @@ class ResPartner(models.Model):
         ('4', 'Muy bueno'),
         ('5', 'Excelente'),
         ('6', 'God'),
-    ], 'Valoración técnica')
+    ], string='Valoración técnica',readonly=True)
     cal_producto = fields.Selection([
         ('1', 'Pésimo'),
         ('2', 'Mal'),
@@ -39,6 +35,6 @@ class ResPartner(models.Model):
         ('4', 'Muy bueno'),
         ('5', 'Excelente'),
         ('6', 'God'),
-    ], 'Calidad de los productos')
+    ], 'Nuevo campo xd',readonly=True)
     
    

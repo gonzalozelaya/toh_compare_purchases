@@ -15,6 +15,30 @@ class PurchaseOrder(models.Model):
 
     order_decline = fields.One2many('purchase.order.decline', 'order_id', string='Rechazados')
 
+    survey_id = fields.Many2one('survey.wizard', string='Encuesta', readonly=True)
+    
+    def open_survey(self):
+        for record in self:
+            if record.state != 'purchase':
+                raise UserError('La orden debe estar confirmada para poder realizar la encuesta')
+            existing_survey = self.env['survey.wizard'].search([('order_id', '=', record.id)], limit=1)
+            if existing_survey:
+                raise UserError('Ya existe una encuesta asociada a esta orden de compra.')
+            if record.user_id != self.env.user:
+                raise UserError('Solo el comprador asignado puede realizar la encuesta.')
+            return {
+                'type': 'ir.actions.act_window',
+                'name': 'Encuesta de proveedor',
+                'res_model': 'survey.wizard',
+                'view_mode': 'form',
+                'target': 'new',
+                # Aquí pasamos el partner_id al wizard mediante el contexto
+                'context': {
+                    'default_partner_id': record.partner_id.id,
+                    'default_order_id': record.id,
+                    },
+            }
+    
     def open_wizard(self):
         if len(self) < 2:
             raise UserError(_("Por favor seleccione dos o mas registros para poder comparar."))

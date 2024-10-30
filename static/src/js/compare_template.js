@@ -194,7 +194,10 @@ export class CompareComponent extends Component {
 
 CompareComponent.props = {
   order_ids: { type: Object, optional: true },
-  defaultTitle: { type: String, optional: false },
+  defaultTitle: { type: String, optional: true },
+  action: { type: Object, optional: true },
+  actionId: { type: Number, optional: true },
+  className: { type: String, optional: true },
 };
   
 CompareComponent.template = "compare_template";
