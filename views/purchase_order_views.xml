@@ -26,6 +26,12 @@
                         <group>
                             <field name="inconvenientes"/>
                         </group>
+                        <group>
+                            <button name="open_survey" string="Encuesta" type="object" class="btn-primary" invisible="survey_id and state == 'purchase'"/>
+                            <field name="survey_id" invisible="1"/>
+                        </group>
+                        <group>
+                        </group>
                     </group>
                 </page>
                 <page name="decline_page" string="Productos Rechazados">

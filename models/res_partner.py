@@ -26,7 +26,7 @@ class ResPartner(models.Model):
         ('4', 'Muy bueno'),
         ('5', 'Excelente'),
         ('6', 'God'),
-    ], 'Calidad de los productos')
+    ], 'Calidad de los productos',readonly=True)
     
     nuevo_campo = fields.Selection([
         ('1', 'Pésimo'),
