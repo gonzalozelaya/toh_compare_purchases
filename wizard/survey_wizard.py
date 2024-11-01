@@ -59,7 +59,7 @@ class SurveyWizard(models.Model):
         surveys = self.search([('partner_id', '=', self.partner_id.id)])
         
         # Convertir las valoraciones a números para calcular el promedio
-        fields_to_average = ['val_financiera', 'val_tecnica', 'cal_producto', 'nuevo_campo']
+        fields_to_average = ['val_financiera', 'val_tecnica', 'cal_producto', 'demora_entrega']
         
         # Diccionario para almacenar los promedios
         averages = {}

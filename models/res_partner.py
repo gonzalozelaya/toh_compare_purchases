@@ -35,6 +35,6 @@ class ResPartner(models.Model):
         ('4', 'Muy bueno'),
         ('5', 'Excelente'),
         ('6', 'God'),
-    ], 'Nuevo campo xd',readonly=True)
+    ], 'Tiempos de entrega',readonly=True)
     
    
