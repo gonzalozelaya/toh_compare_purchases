@@ -36,14 +36,14 @@ class SurveyWizard(models.Model):
         ('6', 'God'),
     ], 'Calidad de los productos')
     
-    nuevo_campo = fields.Selection([
+    demora_entrega = fields.Selection([
         ('1', 'Pésimo'),
         ('2', 'Mal'),
         ('3', 'Bueno'),
         ('4', 'Muy bueno'),
         ('5', 'Excelente'),
         ('6', 'God'),
-    ], 'Calidad de los productos')
+    ], 'Tiempos de entrega')
 
     def action_confirm(self):
         # Guardar el registro y calcular los promedios
@@ -77,7 +77,7 @@ class SurveyWizard(models.Model):
             'val_financiera': str(int(round(averages['val_financiera']))),
             'val_tecnica': str(int(round(averages['val_tecnica']))),
             'cal_producto': str(int(round(averages['cal_producto']))),
-            'nuevo_campo': str(int(round(averages['nuevo_campo']))),
+            'demora_entrega': str(int(round(averages['demora_entrega']))),
         })
         self.order_id.survey_id = self.id
         _logger.info(f"Promedios actualizados para el proveedor {self.partner_id.name}.")

@@ -28,7 +28,7 @@ class ResPartner(models.Model):
         ('6', 'God'),
     ], 'Calidad de los productos',readonly=True)
     
-    nuevo_campo = fields.Selection([
+    demora_entrega = fields.Selection([
         ('1', 'Pésimo'),
         ('2', 'Mal'),
         ('3', 'Bueno'),

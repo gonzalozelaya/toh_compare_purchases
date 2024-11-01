@@ -10,7 +10,7 @@
                         <field name="val_financiera" widget="priority"/>
                         <field name="val_tecnica" widget="priority"/>
                         <field name="cal_producto" widget="priority"/>
-                        <field name="nuevo_campo" widget="priority"/>
+                        <field name="demora_entrega" widget="priority"/>
                     </group>
                     <footer>
                         <button name="action_confirm" string="Confirmar" type="object" class="btn-primary"/>

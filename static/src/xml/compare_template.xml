@@ -267,45 +267,45 @@
                             </t>
                         </tr>
                         <tr>
-                            <th class="bg-white border-top" style="position: sticky; left:0">Nuevo campo</th>
+                            <th class="bg-white border-top" style="position: sticky; left:0">Tiempos de entrega</th>
                             <t t-foreach="order_list" t-as="order" t-key="order.id">
                                 <th colspan="5" scope="col" class="text-center border-left border-top">
-                                    <div class="star-widget" t-if="order.partner_nuevo_campo == false or order.partner_nuevo_campo == '1'">
+                                    <div class="star-widget" t-if="order.demora_entrega == false or order.demora_entrega == '1'">
                                         <span class="fa fa-star"/>
                                         <span class="fa fa-star"/>
                                         <span class="fa fa-star"/>
                                         <span class="fa fa-star"/>
                                         <span class="fa fa-star"/>
                                     </div>
-                                    <div class="star-widget" t-if="order.partner_nuevo_campo == '2'">
+                                    <div class="star-widget" t-if="order.demora_entrega == '2'">
                                         <span class="fa fa-star" style="color:#fd4;"/>
                                         <span class="fa fa-star"/>
                                         <span class="fa fa-star"/>
                                         <span class="fa fa-star"/>
                                         <span class="fa fa-star"/>
                                     </div>
-                                    <div class="star-widget" t-if="order.partner_nuevo_campo == '3'">
+                                    <div class="star-widget" t-if="order.demora_entrega == '3'">
                                         <span class="fa fa-star" style="color:#fd4;"/>
                                         <span class="fa fa-star" style="color:#fd4;"/>
                                         <span class="fa fa-star"/>
                                         <span class="fa fa-star"/>
                                         <span class="fa fa-star"/>
                                     </div>
-                                    <div class="star-widget" t-if="order.partner_nuevo_campo == '4'">
+                                    <div class="star-widget" t-if="order.demora_entrega == '4'">
                                         <span class="fa fa-star" style="color:#fd4;"/>
                                         <span class="fa fa-star" style="color:#fd4;"/>
                                         <span class="fa fa-star" style="color:#fd4;"/>
                                         <span class="fa fa-star"/>
                                         <span class="fa fa-star"/>
                                     </div>
-                                    <div class="star-widget" t-if="order.partner_cal_producto == '5'">
+                                    <div class="star-widget" t-if="order.demora_entrega == '5'">
                                         <span class="fa fa-star" style="color:#fd4;"/>
                                         <span class="fa fa-star" style="color:#fd4;"/>
                                         <span class="fa fa-star" style="color:#fd4;"/>
                                         <span class="fa fa-star" style="color:#fd4;"/>
                                         <span class="fa fa-star"/>
                                     </div>
-                                    <div class="star-widget" t-if="order.partner_cal_producto == '6'">
+                                    <div class="star-widget" t-if="order.demora_entrega == '6'">
                                         <span class="fa fa-star" style="color:#fd4;"/>
                                         <span class="fa fa-star" style="color:#fd4;"/>
                                         <span class="fa fa-star" style="color:#fd4;"/>
